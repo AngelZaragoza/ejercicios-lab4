@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Guía 02 Ejer. 01</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilos.css">
+    </head>
+    <body>
+        <div>
+            <h1>Bienvenido</h1>
+            <h2>Introduzca su Password</h2>
+        </div>
+        <div>
+            <form method="post" action="./Validado">
+                <div><input type="password" name="pass" placeholder="Password"></div>
+                <div><input type="submit" value="Verificar" onclick="return validarCincoCaract();"></div>
+            </form>
+        </div>
+        <script>
+            function validarCincoCaract() {
+                let pass = document.getElementsByName("pass")[0];
+                if (pass.value.length < 5) {
+                    alert('El password debe contener al menos 5 caracteres');
+                    pass.focus();
+                    return false;
+                }
+                return true;
+            }
+        </script>
+
+    </body>    
+</html>
