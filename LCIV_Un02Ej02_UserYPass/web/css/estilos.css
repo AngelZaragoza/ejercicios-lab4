@@ -38,12 +38,13 @@ input {
 
 form {    
     border:3px solid #ccc;
-    margin: auto;
+    width: 400px;    
     padding:15px 5px;
-    box-sizing: border-box;
+    box-sizing: border-box;    
 }
 
-.caja {
-    display: inline-block;
-    width: 33%;
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
