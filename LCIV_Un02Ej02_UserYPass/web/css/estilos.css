@@ -3,7 +3,9 @@
     Created on : 3 oct. 2020, 22:50:50
     Author     : Angel
 */
-
+* {
+    margin: 0;
+}
 h1 {
     background: #2c3e50;
     color: #fff;

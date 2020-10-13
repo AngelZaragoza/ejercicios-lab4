@@ -5,30 +5,29 @@
         <title>Guía 02 Ejer. 02</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/estilos.css">
-        <script src="js/funciones.js"></script>
+        <link rel="stylesheet" href="css/estilos.css">        
     </head>
     <body onload="saludo();">
         <div>
             <h1 id="saludo"></h1>
-            <h2>Introduzca su información de logueo</h2>
+            <h2>Introduzca su información de login</h2>
         </div>        
         <div class="contenedor">
             <ul id="lista"></ul>
         </div>        
         <div class="contenedor">
-            <form  method="post">
+            <form  method="post" id="formulario">
                 <div class="contenedor">
-                    <input type="text" name="user" placeholder="Usuario">
+                    <input type="text" id="user" name="user" placeholder="Usuario">
                 </div>
                 <div class="contenedor">
-                    <input type="password" name="pass" placeholder="Password">
+                    <input type="password" id="pass" name="pass" placeholder="Password">
                 </div>
                 <div class="contenedor">
-                    <input type="submit" value="Verificar" onclick="return validarForm();">
+                    <input type="submit" value="Verificar">
                 </div>
             </form>
         </div>
-
+        <script src="js/funciones.js"></script>
     </body>
 </html>

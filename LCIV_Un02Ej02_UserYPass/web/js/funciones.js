@@ -12,6 +12,9 @@ function saludo() {
         texto = "Buenas noches";
     }
     document.getElementById("saludo").innerHTML = texto;
+    let formulario = document.getElementById("formulario");
+    formulario.addEventListener("submit",validaPrevent);
+
 }
 
 //Esta función muestra alertas con textos de validación
@@ -90,4 +93,31 @@ function textoValidacion(texto) {
     
     elemento.appendChild(nodo);
     padre.appendChild(elemento);
+}
+
+function validaPrevent(e) {
+    let formulario = document.getElementById("formulario");
+    let user = document.getElementById("user");
+    let pass = document.getElementById("pass");
+
+    document.getElementById("lista").innerHTML = "";
+
+    let validarUser = function(e) {
+        if (user.value == "") {            
+            textoValidacion("Debe ingresar un Nombre de Usuario");
+            e.preventDefault();
+        }
+    };
+
+    let validarPass = function(e) {
+        if (pass.value == "") {
+            textoValidacion("Debe ingresar un Password");
+            e.preventDefault();
+        }
+    };
+    
+    validarUser(e);
+    validarPass(e);    
+    
+    // formulario.addEventListener("submit",chequear);
 }
