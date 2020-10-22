@@ -18,7 +18,7 @@
     <body onload="saludo();">
         
         <h1 id="saludo"></h1>
-        <h2>Introduzca su información de logueo</h2>
+        <h2>Introduzca su información de Login</h2>
         <%if(request.getAttribute("mensajeError") != null && 
                 !request.getAttribute("mensajeError").equals("")) { %>
                 <h4> ${mensajeError} </h4>

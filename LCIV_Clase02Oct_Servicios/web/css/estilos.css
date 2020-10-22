@@ -43,16 +43,46 @@ form {
 label {    
     display: flex;
     min-width: 30%;
-    justify-content: flex-start;
-    text-align: right;
+/*    justify-content: flex-start;
+    text-align: right;*/
 }
 
 input {
     display: flex;
-    justify-content: flex-end;
+    /*justify-content: flex-end;*/
     min-width: 60%;
     font-family: "Verdana";    
     padding: 10px;
+}
+
+textarea {
+    display: flex;    
+    min-width: 60%;
+    font-family: "Verdana";
+    font-size: 0.9em; 
+    padding: 10px;
+    resize: none;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 25%;
+}
+
+article {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 65%;
+    align-items: center;
 }
 
 .contenedor {

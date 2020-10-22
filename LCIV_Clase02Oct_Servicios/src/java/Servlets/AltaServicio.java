@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import java.io.IOException;
@@ -18,10 +13,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Angel
  */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "AltaServicio", urlPatterns = {"/AltaServicio"})
+public class AltaServicio extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -48,21 +43,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String usuario = request.getParameter("txtUsuario");
-        String password = request.getParameter("txtPassword");
-
-        if (usuario.equals("tecni") && password.equals("tecni")) {
-            request.getSession().setAttribute("usr", usuario);
-//            RequestDispatcher rd = request.getRequestDispatcher("ListadoEL");
-            RequestDispatcher rd = request.getRequestDispatcher("/menu.jsp");
-            rd.forward(request, response);
-        }
-        else 
-        {
-            request.setAttribute("mensajeError", "Usuario o Contraseña incorrecto");
-            RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
-            rd.forward(request, response);
-        }
+        
     }
 
     /**
@@ -73,6 +54,6 @@ public class Login extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

@@ -16,11 +16,8 @@ function saludo() {
 
 function validar() {
     let usr = document.getElementById("user").value;
-    let pass = document.getElementById("pass").value;
-    document.getElementsByTagName("form")[0].addEventListener("click", function(event) {
-       event.preventDefault() 
-    });
-    
+    let pass = document.getElementById("pass").value;    
+        
     if (usr == "") {
         alert('Usuario');
         e.preventDefault();
