@@ -43,7 +43,7 @@
         </div>
         <hr>
         <div class="contenedor">            
-            <a href="./menuprincipal.jsp">Volver al Menú Principal</a>
+            <a href="./menu.jsp">Volver al Menú Principal</a>
         </div>            
     </body>
 </html>
