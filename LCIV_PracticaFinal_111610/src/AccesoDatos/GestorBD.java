@@ -73,7 +73,7 @@ public class GestorBD {
         return estados;
     }
     
-    public ArrayList<Aula> obtenerEmpleados() {
+    public ArrayList<Aula> getAulas() {
         ArrayList<Aula> aulas = new ArrayList<>();
         String sql = "SELECT * FROM Aulas";
         try {
@@ -96,114 +96,35 @@ public class GestorBD {
         }
         return aulas;
     }
-//    
-//    
-//    public void agregarVisita(Visita nueva) {
-//        String sql = "INSERT INTO Visitas (idPaciente,LegajoRecepcionista,Nombre,Duracion) VALUES (?,?,?,?)";
-//        try
-//        {
-//            abrirConexion();            
-//            PreparedStatement ps = conn.prepareStatement(sql);
-//            ps.setInt(1, nueva.getPaciente().getIdPaciente());
-//            ps.setInt(2, nueva.getRecepcionista().getLegajo());
-//            ps.setString(3, nueva.getNombre());
-//            ps.setInt(4, nueva.getDuracion());
-//            
-//            ps.executeUpdate();
-//            ps.close();
-//            
-//            
-//        }
-//        catch (SQLException ex)
-//        {
-//            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 0);
-//        }
-//        finally
-//        {
-//            cerrarConexion();
-//        }
-//        
-//        
-//    }   
-//    
-//    public ArrayList<DTOVisitas> listadoVisitas() {
-//        ArrayList<DTOVisitas> listado = new ArrayList<>();
-//        String sql = "SELECT P.Nombre AS paciente, V.Nombre AS visita, E.Nombre AS recep, V.Duracion\n" +
-//            "FROM Empleados E INNER JOIN Visitas V ON E.Legajo = V.LegajoRecepcionista " +
-//                "INNER JOIN Pacientes P ON V.IdPaciente = P.IdPaciente\n" +
-//                "ORDER BY paciente";
-//        try {
-//            abrirConexion();
-//            Statement st = conn.createStatement();
-//            ResultSet rs = st.executeQuery(sql);
-//            while (rs.next()) {
-//
-//                String paciente = rs.getString("paciente");
-//                String visita = rs.getString("visita");
-//                String recep = rs.getString("recep");
-//                int duracion = rs.getInt("Duracion");
-//                DTOVisitas v = new DTOVisitas(visita, paciente, recep, duracion);
-//                listado.add(v);
-//            }
-//            rs.close();
-//            st.close();
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 0);
-//        } finally {
-//            cerrarConexion();
-//        }
-//        return listado;
-//        
-//    }
-//    
-//    public ArrayList<DTOCantVisitas> cantVisitas() {
-//        ArrayList<DTOCantVisitas> listado = new ArrayList<>();
-//        String sql = "SELECT P.Nombre, COUNT(*) Cant\n" +
-//                        " FROM Visitas V JOIN Pacientes P ON V.IdPaciente = P.IdPaciente\n" +
-//                        "GROUP BY P.Nombre\n" +
-//                        "ORDER BY P.Nombre";
-//        try {
-//            abrirConexion();
-//            Statement st = conn.createStatement();
-//            ResultSet rs = st.executeQuery(sql);
-//            while (rs.next()) {
-//
-//                String paciente = rs.getString("Nombre");                
-//                int cant = rs.getInt("Cant");
-//                DTOCantVisitas c = new DTOCantVisitas(paciente, cant);
-//                listado.add(c);
-//            }
-//            rs.close();
-//            st.close();
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 0);
-//        } finally {
-//            cerrarConexion();
-//        }
-//        return listado;        
-//    }
-//    
-//    public int promedioVisitasMasDeDiezMin() {
-//        int promedio = 0;
-//        String sql = "SELECT AVG(Duracion) promedio " +
-//                    "FROM Visitas " +
-//                    "WHERE Duracion > 10";
-//        
-//        try {
-//            abrirConexion();
-//            Statement st = conn.createStatement();
-//            ResultSet rs = st.executeQuery(sql);
-//            if (rs.next()) 
-//                promedio = rs.getInt("promedio");                
-//            
-//            rs.close();
-//            st.close();
-//        } catch (Exception ex) {
-//            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 0);
-//        } finally {
-//            cerrarConexion();
-//        }
-//        return promedio;
-//    }
+    
+    
+    public void agregarComputadora(Computadora nueva) {
+        String sql = "INSERT INTO Computadoras(nroAula,idEstado,funcionamiento) VALUES (?,?,?)";
+        try
+        {
+            abrirConexion();            
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, nueva.getAula().getNroAula());
+            ps.setInt(2, nueva.getEstado().getIdEstado());            
+            ps.setInt(3, nueva.getFuncionamiento());
+            
+            ps.executeUpdate();
+            ps.close();
+            
+            
+        }
+        catch (SQLException ex)
+        {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 0);
+        }
+        finally
+        {
+            cerrarConexion();
+        }
+        
+        
+    }   
+    
+
 
 }

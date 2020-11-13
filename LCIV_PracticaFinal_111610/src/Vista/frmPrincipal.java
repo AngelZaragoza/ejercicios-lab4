@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Angel
@@ -40,12 +42,22 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         btnAltaComputadora.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnAltaComputadora.setText("Alta de Computadoras");
+        btnAltaComputadora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAltaComputadoraActionPerformed(evt);
+            }
+        });
 
         btnReportes.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnReportes.setText("Reportes...");
 
         btnCerrar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,7 +93,21 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAltaComputadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaComputadoraActionPerformed
+        frmAltaComputadora alta = new frmAltaComputadora();
+        alta.setLocationRelativeTo(this);
+        alta.setVisible(true);
+    }//GEN-LAST:event_btnAltaComputadoraActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        int resultado = JOptionPane.showConfirmDialog (null, "Desea Salir?","Info",JOptionPane.YES_NO_OPTION);
+        if (resultado == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     /**
      * @param args the command line arguments

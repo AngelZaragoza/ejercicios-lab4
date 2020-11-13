@@ -23,6 +23,11 @@ public class Aula {
     public String getCapacidad() {
         return capacidad;
     }
+
+    @Override
+    public String toString() {
+        return "Nro. " + nroAula + " - " + capacidad;
+    }
     
     
 }
