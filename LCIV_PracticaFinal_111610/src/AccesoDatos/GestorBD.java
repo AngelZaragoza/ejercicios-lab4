@@ -88,7 +88,7 @@ public class GestorBD {
                 aulas.add(emp);
             }
             rs.close();
-            st.close();
+            
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 0);
         } finally {
@@ -108,9 +108,7 @@ public class GestorBD {
             ps.setInt(2, nueva.getEstado().getIdEstado());            
             ps.setInt(3, nueva.getFuncionamiento());
             
-            ps.executeUpdate();
-            ps.close();
-            
+            ps.executeUpdate();            
             
         }
         catch (SQLException ex)
@@ -125,6 +123,53 @@ public class GestorBD {
         
     }   
     
-
+    public int computadorasEnRevision() {
+        int cant = 0;
+        String sql = "SELECT COUNT(*) AS cant FROM Computadoras WHERE idEstado = 2";
+        try {
+            abrirConexion();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                cant = rs.getInt("cant");                
+            }
+            rs.close();
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            cerrarConexion();
+        }
+        return cant;
+    }
+    
+    public ArrayList<DTOPromFuncionamiento> promedioFuncionamiento() {
+        ArrayList<DTOPromFuncionamiento> lista = new ArrayList<>();
+        String sql = "SELECT A.numero, A.capacidad, AVG(funcionamiento) AS promedio\n" +
+                    "	FROM Computadoras C JOIN Aulas A ON C.nroAula=A.numero\n" +
+                    "	GROUP BY A.numero, A.capacidad";
+        try {
+            abrirConexion();
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                int numero = rs.getInt("numero");
+                String capacidad = rs.getString("capacidad");
+                int promedio = rs.getInt("promedio");
+                DTOPromFuncionamiento item = new DTOPromFuncionamiento(numero, capacidad, promedio);
+                lista.add(item);
+            }
+            rs.close();
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", 0);
+        } finally {
+            cerrarConexion();
+        }
+        
+        return lista;
+        
+        
+    }
 
 }

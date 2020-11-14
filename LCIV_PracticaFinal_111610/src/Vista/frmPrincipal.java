@@ -50,6 +50,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         btnReportes.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnReportes.setText("Reportes...");
+        btnReportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportesActionPerformed(evt);
+            }
+        });
 
         btnCerrar.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
         btnCerrar.setText("Cerrar");
@@ -108,6 +113,12 @@ public class frmPrincipal extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
+        frmReportes reportes = new frmReportes();
+        reportes.setLocationRelativeTo(this);
+        reportes.setVisible(true);
+    }//GEN-LAST:event_btnReportesActionPerformed
 
     /**
      * @param args the command line arguments

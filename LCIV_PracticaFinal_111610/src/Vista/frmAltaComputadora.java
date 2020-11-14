@@ -144,9 +144,8 @@ public class frmAltaComputadora extends javax.swing.JFrame {
 
         if (funcionamiento >= 0 && funcionamiento <= 100) {
             Aula aula = (Aula) cboAulas.getSelectedItem();
-            Estado estado = (Estado) cboEstado.getSelectedItem();
+            Estado estado = (Estado) cboEstado.getSelectedItem();            
             
-            GestorBD gestor = new GestorBD();
             Computadora nueva = new Computadora(0, aula, estado, funcionamiento);
             gestor.agregarComputadora(nueva);
             JOptionPane.showMessageDialog(null, nueva.toString(), "Computadora Registrada",1);
